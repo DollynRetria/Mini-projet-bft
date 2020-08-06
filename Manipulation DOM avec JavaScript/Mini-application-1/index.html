@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{display:block; position:relative; width:1000px; margin:25px auto 0}
+        h1{font-size:30px; text-align:center; margin-bottom:25px}
+        h1 span{font-size:16px}
+        .form-wrapper{display:block; width:350px; margin:auto;}
+        form .form-control{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; 
+        align-items:center; margin-bottom:20px}
+        .form-control label{min-width:105px; font-size:18px}
+        .form-control input{height:28px; font-size:16px; width:calc(100% - 105px); padding-left:10px; padding-right:10px}
+        .form-control .btn-wrapper{width:100%; text-align:right;}
+        .form-control button{display:inline-block; width:150px; height:38px; border:none; background:#000000; color:#fff; cursor:pointer; font-size:18px; border-radius:5px; float:right}
+        .table-wrapper{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; justify-content:center; margin-bottom:20px}
+        .color-wrapper{display:block; text-align:center;}
+        .color-wrapper .color-item{display:inline-block; width:50px; height:50px; margin-right:1px}
+        .color-wrapper .color-item:last-child{margin-right:0}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercice DOM <span>(Document Object Model)</span></h1>
+        <div class="form-wrapper">
+            <form onsubmit="return createTable(event)">
+                <div class="form-control">
+                    <label>Ligne(s) :</label>
+                    <input type="text" name="row" id="row" placeholder="enter a number" required />
+                </div>
+                <div class="form-control">
+                    <label>Colonne(s) :</label>
+                    <input type="text" name="col" id="col" placeholder="enter a number" required />
+                </div>
+                <div class="form-control">
+                    <div class="btn-wrapper">
+                        <button type="submit" id="btn-valider">Valider</button>
+                    </div>
+                </div>
+            </form>
+            <br>
+        </div>
+
+        <!-- table générer -->
+        <div class="table-wrapper">
+            <table id="mytable" border="1" cellpadding="15" cellspacing="0">
+    
+            </table>
+        </div>
+
+        <!-- choix des couleurs -->
+        <div class="color-wrapper" id="color">
+            <div class="color-item" id="color-1" style="background-color:#fe0100"></div>
+            <div class="color-item" id="color-2"  style="background-color:#008001"></div>
+            <div class="color-item" id="color-3" style="background-color:#000000"></div>
+            <div class="color-item" id="color-4" style="background-color:#810081"></div>
+        </div>
+    </div>
+
+    <script>
+        //console.log("script");
+        function createTable(e){
+            e.preventDefault();
+            //alert("ato");
+            console.log("tonga ato ve");
+            var nbLigne = document.getElementById("row").value;
+            var nbColonne = document.getElementById("col").value;
+            //console.log(nbLigne+" "+nbColonne);
+            generateTable(parseInt(nbLigne), parseInt(nbColonne));
+        }
+
+        function generateTable(ligne, colonne){
+            var table = document.getElementById("mytable");
+
+            for(var i=0; i < ligne; i++){
+                var tr = document.createElement("tr");
+                for(var j=0; j < colonne; j++){
+                    var td = document.createElement("td");
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+        }
+
+        //var _colorChoise = null;
+        var _color = document.getElementsByClassName("color-item");
+        var myFunction = function(){
+            var _colorChoise = null;
+            var attrColor = this.style.backgroundColor;
+            //return attrColor;
+            _colorChoise = attrColor;
+            //console.log(attrColor);
+            var tdElement = document.getElementsByTagName("td");
+            if(tdElement.length > 0){
+                for(var j=0; j < tdElement.length; j++){
+                tdElement[j].addEventListener('click', function(){
+                    this.style.backgroundColor = _colorChoise;
+                }, false)
+                }
+            }
+            //console.log(tdElement);
+        }
+        for(var i=0; i < _color.length; i++){
+            _color[i].addEventListener('click', myFunction, false);
+        }
+    </script>
+</body>
+</html>
