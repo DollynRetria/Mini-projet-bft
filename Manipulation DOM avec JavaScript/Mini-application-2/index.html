@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{display:block; position:relative; width:320px; margin:75px auto 0;}
+        h1{font-size:30px; text-align:center; margin-bottom:25px}
+        h1 span{font-size:16px}
+        #nb-essai, #message{font-size:18px; text-align:center; margin-bottom:18px}
+        form label{font-size:16px; display:block; margin-bottom:12px;}
+        form .form-group{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;}
+        form input{height:30px; padding:0 10px; width:calc(100% - 139px); max-width:100%; margin-bottom:15px}
+        form button{width:110px; height:34px; margin-left:5px}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercice 2 sur DOM</h1>
+        <div id="nb-essai"></div>
+        <div id="message"></div>
+        <form onsubmit="return essai(event)">
+            <label>Veuillez entrez un nombre entre 1 à 10</label>
+            <div class="form-group">
+                <input type="text" name="nb" id="nb" placeholder="Enter a number" required />
+                <button type="submit" id="btn-add">Essayer</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var myFunction = function(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        var nbAleatoire = myFunction(1, 10);
+        //console.log(nbAleatoire);
+        var inputList = [];
+        var nbClic = 0;
+        var nbEssai = 3;
+        var message = document.getElementById("message");
+        var nbEssaitxt = document.getElementById("nb-essai");
+        nbEssaitxt.innerText = "Vous avez "+ nbEssai +" essai(s)";
+        //function nbEssai
+
+        function essai(e){
+            e.preventDefault();
+            nbClic++;
+            nbEssai--;
+
+            if(nbEssai != 0){
+                nbEssaitxt.innerText = "Vous avez "+ nbEssai +" essai(s)";
+            }else{
+                nbEssaitxt.innerText = "";
+            }
+
+            var _input = document.getElementById("nb").value;
+            inputList.push(_input);
+            console.log(inputList);
+            document.getElementById("nb").value = "";
+            if(nbClic === 3){
+                var inputFilter = inputList.filter((item) => item == nbAleatoire);
+                console.log(inputFilter);
+                if(inputFilter.length > 0){
+                    //console.log("vous avez reussi");
+                    message.style.color = "#10b311";
+                    message.innerText = "Bravo!!! Vous avez réussi :)";
+                }else{
+                    message.style.color = "#ff0000";
+                    message.innerText = "Vous êtes perdu";
+                }
+                document.getElementById("btn-add").disabled = true;
+            }
+        }
+    </script>
+</body>
+</html> 
