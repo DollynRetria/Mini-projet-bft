@@ -9,7 +9,8 @@
         .container{display:block; position:relative; width:320px; margin:75px auto 0;}
         h1{font-size:30px; text-align:center; margin-bottom:25px}
         h1 span{font-size:16px}
-        #nb-essai, #message{font-size:18px; text-align:center; margin-bottom:18px}
+        #nb-essai, #message, #resultat{font-size:18px; text-align:center; margin-bottom:15px}
+        #resultat span{font-weight:bold; color:#10b311}
         form label{font-size:16px; display:block; margin-bottom:12px;}
         form .form-group{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;}
         form input{height:30px; padding:0 10px; width:calc(100% - 139px); max-width:100%; margin-bottom:15px}
@@ -21,6 +22,7 @@
         <h1>Exercice 2 sur DOM</h1>
         <div id="nb-essai"></div>
         <div id="message"></div>
+        <div id="resultat"></div>
         <form onsubmit="return essai(event)">
             <label>Veuillez entrez un nombre entre 1 à 10</label>
             <div class="form-group">
@@ -37,12 +39,13 @@
             return Math.floor(Math.random() * (max - min)) + min;
         }
         var nbAleatoire = myFunction(1, 10);
-        //console.log(nbAleatoire);
+        console.log(nbAleatoire);
         var inputList = [];
         var nbClic = 0;
         var nbEssai = 3;
         var message = document.getElementById("message");
         var nbEssaitxt = document.getElementById("nb-essai");
+        var resultat = document.getElementById("resultat");
         nbEssaitxt.innerText = "Vous avez "+ nbEssai +" essai(s)";
         //function nbEssai
 
@@ -51,29 +54,33 @@
             nbClic++;
             nbEssai--;
 
-            if(nbEssai != 0){
-                nbEssaitxt.innerText = "Vous avez "+ nbEssai +" essai(s)";
-            }else{
-                nbEssaitxt.innerText = "";
-            }
-
             var _input = document.getElementById("nb").value;
             inputList.push(_input);
             console.log(inputList);
             document.getElementById("nb").value = "";
-            if(nbClic === 3){
-                var inputFilter = inputList.filter((item) => item == nbAleatoire);
-                console.log(inputFilter);
-                if(inputFilter.length > 0){
-                    //console.log("vous avez reussi");
+
+            if(nbClic < 3){
+                if(inputList[0] == nbAleatoire && nbEssai != 0){
+                    nbEssaitxt.innerText = "";
+                    message.style.color = "#10b311";
+                    message.innerText = "Bravo!!! Vous avez réussi :)";
+                    document.getElementById("btn-add").disabled = true;
+                }else{
+                    nbEssaitxt.innerText = "Vous avez "+ nbEssai +" essai(s)";
+                }
+            }else if(nbClic === 3){
+                if(inputList[0] == nbAleatoire){
+                    nbEssaitxt.innerText = "";
                     message.style.color = "#10b311";
                     message.innerText = "Bravo!!! Vous avez réussi :)";
                 }else{
                     message.style.color = "#ff0000";
-                    message.innerText = "Vous êtes perdu";
+                    message.innerText = "Vous êtes perdu"
+                    resultat.innerHTML = "La solution est : <span>"+ nbAleatoire + "</span>";
                 }
                 document.getElementById("btn-add").disabled = true;
             }
+            inputList.shift();
         }
     </script>
 </body>
