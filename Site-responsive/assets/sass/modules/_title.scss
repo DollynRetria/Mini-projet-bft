@@ -1,0 +1,6 @@
+.title-h2{
+    font-family:$openSans;
+    @include font-size(32px);
+    margin-bottom:18px;
+    font-weight: $medium;
+}
