@@ -1,6 +1,11 @@
 .title-h2{
+    @include media-breakpoint-up(sm){
+        @include font-size(32px);
+
+    }
     font-family:$openSans;
-    @include font-size(32px);
+    @include font-size(28px);
+    line-height: 40px;
     margin-bottom:18px;
     font-weight: $medium;
 }

@@ -11,23 +11,100 @@ header{
     justify-content: space-between;
 }
 
+.header-logo{
+    img{
+        @include media-breakpoint-up(sm){
+            width:auto;
+            height: auto;
+        }
+        width:auto;
+        height: 85px;
+    }
+}
+
+.header-menu{
+    @include media-breakpoint-up(sm){
+        display:block; 
+    }
+    //display:none;
+    @include breakpoint(767px){
+
+    }
+
+}
+
+
+
+.header-menu{
+    @include media-breakpoint-up(sm){
+        @include flexbox();
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+  
+    @include breakpoint(767px){
+        -moz-transition: top ease-in-out 300ms;
+        -webkit-transition: top ease-in-out 300ms;
+        -ms-transition: top ease-in-out 300ms;
+        transition: top ease-in-out 300ms;
+        top:calc(-100vh - 15px);
+        display:block;
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 135px);
+        z-index: 99;
+        background-color:#20232a;
+        padding-top:15px;
+        overflow-y:auto;
+        left:0;
+
+        &.menu-show{
+            top:100px;
+            height: calc(100vh - 115px);
+          }
+    }
+  }
+
+
+
+
+.burger-menu{
+    @include media-breakpoint-up(sm){
+        display:none;
+    }
+    display:block; 
+}
+
+
 .menu-pple{
     display:block; 
     position:relative; 
 
     li{
+        @include media-breakpoint-up(sm){
+            float:left;
+        }
         display:block; 
-        float:left;
+        float:none;
         position:relative;
         list-style-type:none;
 
         a{
             display:inline-block; 
+            width:100%;
             @include font-size(16px);
             color:$black;
             padding:10px 15px;
             font-family:$openSans;
             color:#fff;
+
+            @include breakpoint(767px){
+                width:100%;
+                display: block;
+                text-align:center;
+                padding:20px 0;
+
+            }
 
             &:hover, &:focus, &:active{
                 text-decoration: none;
@@ -46,12 +123,65 @@ header{
             width:180px;
             z-index: 1;
             background-color:rgba(255,255,255,0.7);
+
+            @include breakpoint(767px){
+                display:block;
+                width:100%;
+                position:relative;
+                background-color:transparent;
+
+            }
              
             li{
                 a{
                     color:#000;
+
+                    @include breakpoint(767px){
+                        border-bottom:1px solid #fff;
+                        color:$white;
+                        padding:12px 0;
+                    }
                 }
+
+                &:first-child{
+                    a{
+                        @include breakpoint(767px){
+                            border-top:1px solid #fff;
+                        }
+                    }
+                }
+
+                // &:last-child{
+                //     a{
+                //         @include breakpoint(767px){
+                //             border-bottom:none;
+                //         }
+                //     }
+                // }
             }
         }
     }
 }
+
+//burger menu
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: $white;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+      @include transform(rotate(-45deg) translate(-9px, 6px));
+    // -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    // transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    @include transform(rotate(45deg) translate(-8px, -8px));
+    // -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    // transform: rotate(45deg) translate(-8px, -8px);
+  }

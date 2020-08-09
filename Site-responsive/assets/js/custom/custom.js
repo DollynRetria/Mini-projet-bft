@@ -14,10 +14,18 @@ jQuery.noConflict();
       // });
       //alert("ato");
 
-      $(".menu-pple > li > a").hover(function(){
+      $(".menu-pple > li").hover(function(){
+        if($(this).children('.submenu').length > 0){
+          $(this).children('.submenu').toggle();
+        }
         //alert("ato");
-        $(this).siblings('.submenu').toggle();
       });
+
+      $('.burger-menu').on("click", function(){
+        $('body').toggleClass('pos-fixed');
+        $(this).toggleClass('change');
+        $('.header-menu').toggleClass('menu-show');
+      })
     });
 
     $(window).on('load resize orientationchange', function () {

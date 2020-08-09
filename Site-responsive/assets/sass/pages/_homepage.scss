@@ -1,40 +1,61 @@
 .baniere{
+    @include media-breakpoint-up(sm){
+        min-height:600px;
+    }   
     display:block; 
     position:relative;
     //padding:40px 0;
     //background-color:$gris;
     background:url('../images/baniere.jpg') no-repeat center;
     background-size:cover;
-    min-height: 600px;
+    min-height: 400px;
 }
 
 .bloc-baniere{
+    @include media-breakpoint-up(sm){
+        min-height:600px;
+    }    
     @include flexbox();
-    min-height:600px;
+    min-height:400px;
     align-items:center;
 }
 
 .bloc-baniere-wrapper{
-    padding:20px 40px;
+    @include media-breakpoint-up(sm){
+        padding-left:40px;
+        padding-right:40px;
+    }
+    padding:20px;
     background:rgba(0,0,0,0.5);
 
 
     h1{
-        @include font-size(45px);
+        @include media-breakpoint-up(sm){
+            @include font-size(45px);
+            margin-bottom: 20px;
+        }
+        @include font-size(32px);
         font-family:$openSans;
         color:$white;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     p{
-        @include font-size(16px);
+        @include media-breakpoint-up(sm){
+            @include font-size(16px);
+            line-height: 26px;
+        }
+        @include font-size(14px);
         color:$white;
         font-family: $openSans;
-        line-height: 26px;
+        line-height: 24px;
     }
 
     .btn-custom{
+        @include media-breakpoint-up(sm){
+            margin-top:30px;
+        }
         padding:0 10px;
         display:inline-block; 
         font-family:$openSans;
@@ -47,7 +68,7 @@
         background-color:$white;
         color:$black; 
         @include border-radius(3px);
-        margin-top:30px;
+        margin-top:15px;
         min-width: 200px;
         text-align:center;
         @include other-transition(1s, ease-in-out);
@@ -62,12 +83,19 @@
 
 //competeces
 .competences{
+    @include media-breakpoint-up(sm){
+        padding-top:70px;
+        padding-bottom:70px;
+    }
     display:block;
     position:relative; 
-    padding:70px 0;
+    padding:35px 0;
 }
 .row-competence{
-    padding-bottom:60px;
+    @include media-breakpoint-up(sm){
+        padding-bottom:60px;
+    }
+    padding-bottom:40px;
 }
 .row-competence:last-child{
     padding-bottom:0;
@@ -76,12 +104,16 @@
 
 .row-competence-1{
     .competence-txt{
-        text-align: right;
+        @include media-breakpoint-up(sm){
+            text-align: right;
+        }
     }
 }
 .row-competence-2{
     .competence-txt{
-        text-align: left;
+        @include media-breakpoint-up(sm){
+            text-align: left;
+        }
     }
 }
 .competence-txt{
@@ -164,11 +196,14 @@
     padding:70px 0;
 
     h2{
+        @include media-breakpoint-up(sm){
+            @include font-size(45px);
+        }
         font-family: $openSans;
         font-weight:$light;
         color:$black; 
         text-transform:uppercase;
-        @include font-size(45px);
+        @include font-size(38px);
         text-align:center;
         margin-bottom:50px;
     }
