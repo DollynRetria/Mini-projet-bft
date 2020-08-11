@@ -22,18 +22,18 @@
                             </div>
                             <div class="header-menu">
                                 <ul class="menu-pple">
-                                    <li><a href="#">Accueil</a></li>
-                                    <li><a href="#">Qui suis-je</a></li>
+                                    <li><a href="javascript:void(0)">Accueil</a></li>
+                                    <li><a href="#about">Qui suis-je</a></li>
                                     <li>
-                                        <a href="#">Portofolio</a>
+                                        <a href="javascript:void(0)">Portofolio</a>
                                         <ul class="submenu">
-                                            <li><a href="#">Portofolio 1</a></li>
-                                            <li><a href="#">Portofolio 2</a></li>
-                                            <li><a href="#">Portofolio 3</a></li>
-                                            <li><a href="#">Portofolio 4</a></li>
+                                            <li><a href="javascript:void(0)">Portofolio 1</a></li>
+                                            <li><a href="javascript:void(0)">Portofolio 2</a></li>
+                                            <li><a href="javascript:void(0)">Portofolio 3</a></li>
+                                            <li><a href="javascript:void(0)">Portofolio 4</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#contact">Contact</a></li>
                                 </ul>
                             </div>
                             <div class="burger-menu">
@@ -57,7 +57,7 @@
                             <p>Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis 
                                 frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, 
                                 milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.</p>
-                            <a class="btn-custom" href="javascript:void(0)">Me contacter</a>
+                            <a class="btn-custom" id="contact-me" href="#contact">Me contacter</a>
                         </div>
                     </div>
                 </div>
@@ -79,20 +79,19 @@
                 </div>
             </div>
             <div class="row row-competence row-competence-2">
-                <div class="col-md-6 competence-img">
-                    <img src="assets/images/dev-back.jpg" alt="" />
-                </div>
                 <div class="col-md-6 competence-txt">
                     <h2 class="title-h2">Développement Backend</h2>
                     <p>Hinc ille commotus ut iniusta perferens et indigna praefecti custodiam protectoribus mandaverat fidis. quo conperto Montius tunc quaestor acer quidem sed ad lenitatem propensior, consulens in commune advocatos palatinarum primos scholarum adlocutus est mollius docens nec decere haec fieri nec prodesse addensque vocis obiurgatorio sonu quod si id placeret, post statuas Constantii deiectas super adimenda vita praefecto conveniet securius cogitari.</p>
                     <p>Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum. Divitior mihi et affluentior videtur.</p>
                     <p>Post emensos insuperabilis expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locato per stationes hibernas, fortunae saevientis procellae tempestates alias rebus infudere communibus per multa illa et dira facinora Caesaris Galli, qui ex squalore imo miseriarum in aetatis adultae primitiis ad principale culmen insperato saltu provectus ultra terminos potestatis delatae procurrens asperitate nimia cuncta.</p>
                 </div>
-
+                <div class="col-md-6 competence-img">
+                    <img src="assets/images/dev-back.jpg" alt="" />
+                </div>
             </div>
         </div>
     </section>
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-12 about-txt">
@@ -118,7 +117,7 @@
 
                     <div class="slider-wrapper">
                         <div><img src="assets/images/html-5.svg" alt="" /></div>
-                        <div><img src="assets/images/css3.svg" alt="" /></div>
+                        <div><img src="assets/images/css-3.svg" alt="" /></div>
                         <div><img src="assets/images/javascript.svg" alt="" /></div>
                         <div><img src="assets/images/bootstrap.svg" alt="" /></div>
                         <div><img src="assets/images/sass-1.svg" alt="" /></div>
@@ -134,11 +133,14 @@
                         <div><img src="assets/images/symfony.svg" alt="" /></div>
                         <div><img src="assets/images/laravel-1.svg" alt="" /></div>
                     </div>
+                    <div class="tools-and-tech-description">
+                        Quo conperto Montius tunc quaestor acer quidem sed ad lenitatem propensior, consulens in commune advocatos palatinarum primos scholarum adlocutus est mollius docens nec decere haec fieri nec prodesse addensque vocis obiurgatorio sonu quod.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -162,7 +164,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea class="form-control" placeholder="Sujet de votre message"></textarea>
+                                <textarea class="form-control" placeholder="Message"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                         </form>

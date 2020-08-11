@@ -1,5 +1,12 @@
 header{
+    //@include media-breakpoint-up(sm){
+        position: fixed;
+        width:100%;
+        top:0;
+        display: block;
+   // }
     background-color:$black;
+    z-index:99;
 }
 .header-wrapper{
     padding:15px 0;

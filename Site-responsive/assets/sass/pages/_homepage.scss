@@ -1,6 +1,7 @@
 .baniere{
     @include media-breakpoint-up(sm){
         min-height:600px;
+        margin-top: 130px;
     }   
     display:block; 
     position:relative;
@@ -9,6 +10,7 @@
     background:url('../images/baniere.jpg') no-repeat center;
     background-size:cover;
     min-height: 400px;
+    margin-top: 115px;
 }
 
 .bloc-baniere{
@@ -27,6 +29,7 @@
     }
     padding:20px;
     background:rgba(0,0,0,0.5);
+    display: block;
 
 
     h1{
@@ -71,7 +74,12 @@
         margin-top:15px;
         min-width: 200px;
         text-align:center;
-        @include other-transition(1s, ease-in-out);
+        //@include other-transition(1s, ease-in-out);
+
+        -webkit-transition: background-color 1s ease-in-out, color 1s ease-in-out;
+        -moz-transition: background-color 1s ease-in-out, color 1s ease-in-out;
+        -o-transition: background-color 1s ease-in-out, color 1s ease-in-out;
+        transition: background-color 1s ease-in-out, color 1s ease-in-out;
 
         &:hover{
             color:#fff;
@@ -110,9 +118,21 @@
     }
 }
 .row-competence-2{
+    .competence-img{
+        @include media-breakpoint-up(sm){
+            -webkit-box-ordinal-group: 2;
+            -webkit-order: 1;
+            -ms-flex-order: 1;
+            order: 1; 
+        }
+    }
     .competence-txt{
         @include media-breakpoint-up(sm){
             text-align: left;
+            -webkit-box-ordinal-group: 3;
+            -webkit-order: 2;
+            -ms-flex-order: 2;
+            order: 2; 
         }
     }
 }
@@ -128,10 +148,14 @@
 
 //about
 .about{
+    @include media-breakpoint-up(sm){
+        padding-top:75px;
+        padding-bottom:75px;
+    }
     display:block; 
     position:relative;
     background-color:#20232a;
-    padding:100px 0;
+    padding:50px 0;
 
     &:before{
         content: "";
@@ -155,14 +179,19 @@
         border:6px solid $white;
         @include border-radius(50%);
         margin-bottom:25px;
+        background-color:#20232a;
 
         img{
             @include border-radius(50%);
+            background-color:#20232a;
         }
     }
 
     .about-me{
-        margin-bottom:50px;
+        @include media-breakpoint-up(sm){
+            margin-bottom:50px;
+        }
+        margin-bottom:25px;
         h3{
             color:$white;
             @include font-size(20px);
@@ -193,7 +222,11 @@
 
 //slider
 .tools-and-tech{
-    padding:70px 0;
+    @include media-breakpoint-up(sm){
+        padding-top:70px;
+        padding-bottom:70px;
+    }
+    padding:50px 0 25px;
 
     h2{
         @include media-breakpoint-up(sm){
@@ -219,72 +252,29 @@
         margin-bottom: 50px;
         margin-left: 40px;
         margin-right: 40px;
+
+        @include breakpoint(767px){
+            width:calc(33.3% - 10px);
+            margin:0 5px 25px;
+        }
+
+        img{
+            @include breakpoint(767px){
+                max-width:65%;
+                margin:auto;
+                display:block;
+            }
+        }
     }
 }
 
-//footer
-footer{
-    padding:75px 0;
-    background-color:#20232a;
-    position:relative;
-
-    &:before{
-        content: "";
-        display: block;
-        position:absolute;
-        width: 0;
-        height: 0;
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;
-        border-top: 15px solid #fff;
-        left:50%;
-        top:0;
-        @include transform(translateX(-50%));
-    }
-}
-
-.form-wrapper{
-    display:block; 
-    max-width:720px;
+.tools-and-tech-description{
+    @include font-size(14px);
+    color:$black;
+    font-family: $openSans;
+    line-height: 22px;
+    max-width: 720px;
     margin:auto;
-
-    .title-h2{
-        color:$white;
-        text-align: center;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        @include font-size(40px);
-    }
+    text-align: center;
 }
 
-.form-wrapper{
-    label{
-        font-family:$openSans;
-        color:$white;
-        @include font-size(16px);
-        margin-bottom:12px;
-    }
-    input, textarea{
-        background-color:$white;
-        color:$black; 
-        padding-left:10px;
-        padding-right:10px;
-        @include font-size(14px);
-        font-family: $openSans;
-    }
-
-    textarea{
-        resize:none;
-    }
-
-    .btn{
-        @include font-size(16px);
-        font-family: $openSans;
-        background-color:$black; 
-        border:none;
-        min-width:200px;
-        height: 40px;
-        text-transform: uppercase;
-        @include border-radius(5px);
-    }
-}

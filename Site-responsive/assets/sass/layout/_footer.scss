@@ -1,0 +1,75 @@
+//footer
+footer{
+    @include media-breakpoint-up(sm){
+        padding-top:75px;
+        padding-bottom:75px;
+    }
+    padding:50px 0;
+    background-color:#20232a;
+    position:relative;
+
+    &:before{
+        content: "";
+        display: block;
+        position:absolute;
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-top: 15px solid #fff;
+        left:50%;
+        top:0;
+        @include transform(translateX(-50%));
+    }
+}
+
+.form-wrapper{
+    display:block; 
+    max-width:720px;
+    margin:auto;
+
+    .title-h2{
+        color:$white;
+        text-align: center;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        @include font-size(40px);
+    }
+}
+
+.form-wrapper{
+    label{
+        font-family:$openSans;
+        color:$white;
+        @include font-size(16px);
+        margin-bottom:12px;
+    }
+    input, textarea{
+        background-color:$white;
+        color:$black; 
+        padding-left:10px;
+        padding-right:10px;
+        @include font-size(14px);
+        font-family: $openSans;
+    }
+
+    textarea{
+        resize:none;
+    }
+
+    .btn{
+        
+        @include font-size(16px);
+        font-family: $openSans;
+        background-color:$black; 
+        border:none;
+        min-width:200px;
+        height: 40px;
+        text-transform: uppercase;
+        @include border-radius(5px);
+
+        @include breakpoint(767px){
+            float:right;
+        }
+    }
+}
