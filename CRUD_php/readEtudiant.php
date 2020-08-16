@@ -1,3 +1,4 @@
+<a href="formulaires.php">ajout</a><br><br>
 <?php 
 	require_once 'Etudiant.php';
 	$myEtudiant = new Etudiant();

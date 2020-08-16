@@ -17,8 +17,11 @@
 		
 		if($insertEtudiant){
 			echo "insertion reussie";
+			//header('Location: readEtudiant.php');
+			header('Refresh:2;url=readEtudiant.php');
 		}else{
-			echo "insertion echouee";
+			echo '<a href="formulaires.php">insertion echouee</a>';
+			//header('Location: formulaires.php');
 		}
 	}else{
 		throw new Exception("erreur de transmission de donnee");

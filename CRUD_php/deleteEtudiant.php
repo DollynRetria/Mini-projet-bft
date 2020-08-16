@@ -6,9 +6,10 @@
 		$deleteEtudiant = "DELETE FROM `etudiant` WHERE id_etudiant=".$id;
 		$resDelEtudiant = $myEtudiant->executerRequete($deleteEtudiant);
 		if($resDelEtudiant){
-			echo "suppression reussie";
+			echo '<a href="readEtudiant.php">Supression reussie</a>';
+			header('Refresh:3;url=readEtudiant.php');
 		}else{
-			echo "suppression echouee";
+			echo '<a href="readEtudiant.php">Supression echouee</a>';
 		}
 
 	}else{

@@ -16,8 +16,9 @@
 		
 		if($updateEtudiant){
 			echo "modification reussie";
+			header('Refresh:2;url=readEtudiant.php');
 		}else{
-			echo "modification echoue";
+			echo '<a href="readEtudiant.php">modification echouee</a>';
 		}
 	}
 ?>
